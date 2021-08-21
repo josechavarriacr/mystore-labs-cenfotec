@@ -4,13 +4,73 @@
   <h1>{{title}}</h1>
 </div>
 
-<nav>
-  <ul>
-    <li><a routerLink="/" routerLinkActive="active">Home</a></li>
-    <li><a routerLink="/contact" routerLinkActive="active">Contact Component</a></li>
-    <li><a routerLink="/post" routerLinkActive="active">Posts</a></li>
-    <li><a routerLink="/hero-form" routerLinkActive="active">Register a Hero</a></li>
-  </ul>
-</nav>
+<div>
+
+  <!-- start nav  -->
+  <nav>
+    <ul>
+      <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active">Contact Component</a></li>
+      <li><a routerLink="/post" routerLinkActive="active">Posts</a></li>
+      <li><a routerLink="/hero-form" routerLinkActive="active">Register a Hero</a></li>
+    </ul>
+  </nav>
+<!-- end nav -->
+
+<!-- start search -->
+  <div class="container">
+    <form>
+      <div class="form-group search-bar">
+        <!-- Search -->
+        <input type="text" class="form-control" placeholder="Search..." #searchBox (input)="search(searchBox.value)">
+
+        <!-- Progres -->
+        <div class="loader" *ngIf="loading">
+          <div class="c-three-dots-loader"></div>
+        </div>
+      </div>
+
+      <!-- Search Result -->
+      <div class="list-group">
+        <div class="list-group-item list-group-item-action" *ngFor="let country of countries$ | async">
+          <div class="media">
+            <img src="{{country.flag}}" class="mr-3" alt="...">
+            <div class="media-body">
+              <p class="mt-0">{{ country.name }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+<!-- end search -->
+
+<!-- star card  -->
+<div class="row">
+  <div class="col-sm-12">
+    <app-card (calCount)="calCount($event)" [data]="data1" [showCount]="true"></app-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <app-card (calCount)="calCount($event)" [data]="data2"></app-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-9 count-text">
+    Total Data Count ::
+  </div>
+  <div class="col-sm-3 count-text">
+    <span>
+      {{totalCount}}
+    </span>
+  </div>
+</div>
+<!-- end card -->
+
+</div>
+
 
 <router-outlet></router-outlet>

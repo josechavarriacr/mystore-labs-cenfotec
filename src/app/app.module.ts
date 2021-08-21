@@ -7,12 +7,15 @@ import { ContactComponent } from './contact/contact.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 import { PostComponent } from './post/post.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CountryService } from './shared/county.service';
+import { CardComponent } from './card/card.component';
 @NgModule({
   declarations: [
     AppComponent,
     ContactComponent,
     HeroFormComponent,
     PostComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
 
   ],
-  providers: [],
+  providers: [CountryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
