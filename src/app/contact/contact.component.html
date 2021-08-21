@@ -1,0 +1,17 @@
+
+Property Binding
+<h2>appName: {{appName}} // Property Binding</h2>
+
+<h4>Personal Information // String interpolation</h4>
+<p>name: {{contact.name}}</p>
+<p>lastname: {{contact.lastname}}</p>
+<p>phone: {{contact.phone}}</p>
+<p>email: {{contact.email}}</p>
+
+<h4>Event Binding</h4>
+<p>{{dateTime}}</p>
+<button (click)="showData($event)">Click here</button>
+
+<h4>Two-way data binding with NgModel a directive</h4>
+<input type="text" [(ngModel)]="userName" />
+<p>Two way binding! Hello {{ userName }}!</p>
